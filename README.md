@@ -59,7 +59,7 @@ $$ LogLoss = -\frac{1}{n}\sum_{i=1}^n [y_ilog(\hat{y}_i)+(1-y_i)log(1- \hat{y}_i
  - 融合模型方法：首先将特征提取出来，然后拼接在一起，构建一个全连接分类器训练即可。
  - 模型融合能提供成绩的理论依据是，有些模型识别狗的准确率高，有一些模型识别猫的准确率高，给这些模型不同的权重，让他们能够取长补短，强强联合，综合各自的优势，为了更高的融合模型，可以提取特征进行融合，这样会有更好的效果，弱特征的权重会越学越小，强特征会越学越大，最后得到效果非常好的模型。
  
- ![model_png](https://github.com/bjheweihua/OCJSDemo/blob/master/model.png "")
+ ![model_png](https://github.com/bjheweihua/cats_vs_dogs/blob/master/source/model.png "")
 
 该模型使用云端GPU训练实现。
 
@@ -116,4 +116,4 @@ Kera的应用模块Application提供了带有预训练权重的Keras模型，这
 
 猫狗预测效果如下：
 
-![cat_vs_dog](https://github.com/bjheweihua/OCJSDemo/blob/master/cat_vs_dog_ios.gif "")
+![cat_vs_dog](https://github.com/bjheweihua/cats_vs_dogs/blob/master/source/cat_vs_dog_ios.gif "")
