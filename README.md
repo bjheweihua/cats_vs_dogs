@@ -42,14 +42,7 @@ sample_submission.csv 需要将最终测试集的测试结果写入.csv 文件�
 
 kaggle 官方的评估标准是 LogLoss，下面的表达式就是二分类问题的 LogLoss 定义。
 
-$$ LogLoss = -\frac{1}{n}\sum_{i=1}^n [y_ilog(\hat{y}_i)+(1-y_i)log(1- \hat{y}_i)]$$
-
-其中：
-
-- n 是测试集中图片数量
-- $\hat{y}_i$ 是图片预测为狗的概率
-- $y_i$ 如果图像是狗，则为1，如果是猫，则为0
-- $log()$ 是自然（基数 $e$）对数
+ ![logloss_png](https://github.com/bjheweihua/cats_vs_dogs/blob/master/source/logloss.png "")
 
 对数损失越小，代表模型的性能越好。上述评估指标可用于评估该项目的解决方案以及基准模型。
 
