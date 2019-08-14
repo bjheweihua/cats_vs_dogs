@@ -13466,8 +13466,7 @@ ls: write error
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>异常图片的检测和移除，见另外一个文件：detection_remove.ipynb</p>
-<p>经过观察数据，数据集中大部分图片是正常的，下面这小部分异常图片，对于训练集来说这些异常数据是要剔除掉的。</p>
+<h2 id="&#24322;&#24120;&#22270;&#29255;&#30340;&#26816;&#27979;&#21644;&#31227;&#38500;&#65292;&#35265;&#21478;&#22806;&#19968;&#20010;&#25991;&#20214;&#65306;detection_remove.ipynb,-&#25191;&#34892;&#23436;&#32487;&#32493;&#19979;&#38754;&#30340;&#27493;&#39588;">&#24322;&#24120;&#22270;&#29255;&#30340;&#26816;&#27979;&#21644;&#31227;&#38500;&#65292;&#35265;&#21478;&#22806;&#19968;&#20010;&#25991;&#20214;&#65306;detection_remove.ipynb, &#25191;&#34892;&#23436;&#32487;&#32493;&#19979;&#38754;&#30340;&#27493;&#39588;<a class="anchor-link" href="#&#24322;&#24120;&#22270;&#29255;&#30340;&#26816;&#27979;&#21644;&#31227;&#38500;&#65292;&#35265;&#21478;&#22806;&#19968;&#20010;&#25991;&#20214;&#65306;detection_remove.ipynb,-&#25191;&#34892;&#23436;&#32487;&#32493;&#19979;&#38754;&#30340;&#27493;&#39588;">&#182;</a></h2><p>经过观察数据，数据集中大部分图片是正常的，下面这小部分异常图片，对于训练集来说这些异常数据是要剔除掉的。</p>
 
 </div>
 </div>
@@ -13586,35 +13585,6 @@ ls: write error
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#38382;&#39064;&#20998;&#26512;&#21450;&#27169;&#22411;&#36873;&#25321;">&#38382;&#39064;&#20998;&#26512;&#21450;&#27169;&#22411;&#36873;&#25321;<a class="anchor-link" href="#&#38382;&#39064;&#20998;&#26512;&#21450;&#27169;&#22411;&#36873;&#25321;">&#182;</a></h2><hr>
-<p><img src="source/cat_dog_classify.gif"/></p>
-<p>上图给出了一个简单的猫狗识别的卷积神经网络结构，在最底下（同时也是最大的）的点块表示的是网络的输入层（Input Layer），通常这一层作用是读入图像作为网络的数据输入。在最上面的点块是网络的输出层（Output Layer），其作用是预测并输出读入图像的类别，在这里由于只需要区分猫和狗，因此输出层只有2个神经计算单元。而位于输入和输出层的，都称之为隐含层（Hidden Layer），图中有3个隐含层，图像分类的隐含层都是由卷积操作完成的，因此这样的隐含层也成为卷积层（Convolutional Layer）。因此，输入层、卷积层、输出层的结构及其对应的参数就构成了一个典型的卷积神经网络。当然，在实际中使用的卷积神经网络要比这个示例的结构更加复杂，自2012年的ImageNet比赛起，几乎每一年都会有新的网络结构诞生，已经被大家认可的常见网络有AlexNet, VGG-Net, GoogLeNet, Inception V2-V4, ResNet等等。这些卷积神经网络都是在ImageNet数据集上表现非常优异的神经网络，具体准确率和模型大小如下图所示。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="source/nnarch1-1.png"/></p>
-<p><img src="source/imagenet_info.png"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>卷积神经网络中卷积层和池化层主要是对图片的几何特征进行抽取，比如浅层的卷积池化层可以抽取出一些直线，角点等简单的抽象信息，深层的卷积池化层可以抽取人脸等复杂的抽象信息，最后的全连接层才是对图片分类的关键处理。因此可以利用已经训练好的卷积神经网络提取图片中复杂的几何特征，即将原始图片用已经训练好的卷积神经网络处理之后的输出，作为新的输入，然后加上自己的全连接层，去进行分类。在模型训练的过程中，只改变新加的全连接层的权重。</p>
-<p>由于每一种神经网络提取的特征都不一样，因此本项目将多个神经网络处理的结果拼接，作为最后一层全连接层的输入，这样做可以有效地降低方差。</p>
-<p>本项目迁移学习部分使用Keras实现，而Keras中可以导入的模型有Xception，VGG16，VGG19，ResNet50，InceptionV3，InceptionResNetV2，MobileNet. 综合考虑模型的分类准确率和大小，选用迁移学习的基础模型为ResNet50，InceptionV3，Xception，InceptionResNetV2。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2 id="&#29983;&#25104;&#36801;&#31227;&#23398;&#20064;&#29305;&#24449;&#21521;&#37327;">&#29983;&#25104;&#36801;&#31227;&#23398;&#20064;&#29305;&#24449;&#21521;&#37327;<a class="anchor-link" href="#&#29983;&#25104;&#36801;&#31227;&#23398;&#20064;&#29305;&#24449;&#21521;&#37327;">&#182;</a></h2><p>在keras文档中的预处理函数，根据在imagenet数据集上的预测准确率，排名比较好的的是InceptionResNetV2、Xception、InceptionV3，ResNet50考虑用这四个模型进行融合。这四个模型对于输入数据都有各自的默认值，比如在输入图片大小维度上，Xception、InceptionV3、InceptionResNetV2默认输入图片大小是299x299，ResNet50默认输入图片大小是224x224；在输入数值维度上，Xception、InceptionV3、InceptionResNetV2默认输入数值在(-1, 1)范围内。当要输入与默认图片大小不同的图片时，只需传入当前图片大小即可。ResNet50需要对图片进行中心化处理，由于载入的ResNet50模型是在ImageNet数据上训练出来的，所以在预处理中每个像素点都要减去ImageNet均值。当要输入与默认图片大小不同的图片时，只需传入当前图片大小即可。当输入数值不符合默认要求时，使用每个模型的预处理函数<code>preprocess_input</code>即可将输入图片处理成该模型的标准输入。</p>
 <p>常见的卷积神经网络结构在前面的若干层都是卷积池化层及其各种变种，后面几层都是全连接层，这些全连接层之前的网络层被称为瓶颈层 (bottleneck). 将新的图片通过训练好的卷积神经网络直到瓶颈层的过程可以看做是对图像进行特征提取的过程。一般情况下，为了减少内存的消耗， 加快计算的过程，再将瓶颈层的结果输入全连接层之前，做一次全局平均池化，比如ResNet50瓶颈层输出结果是7x7x2048，如果直接输入到全连接层，参数会非常多，所以进行一次全局平均池化，将输出矩阵调整为 1x1x2048，这么做还有一个好处，那就是可以降低过拟合的程度。</p>
@@ -13658,8 +13628,6 @@ ls: write error
     <span class="n">gen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">()</span>
     <span class="n">train_generator</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="s2">&quot;img_train&quot;</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
     <span class="n">test_generator</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="s2">&quot;img_test&quot;</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">class_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="c1">#train = model.predict_generator(train_generator, train_generator.nb_sample) </span>
-    <span class="c1">#test = model.predict_generator(test_generator, test_generator.nb_sample)</span>
     <span class="n">train</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_generator</span><span class="p">(</span><span class="n">train_generator</span><span class="p">,</span> <span class="n">train_sample_counts</span><span class="p">)</span> 
     <span class="n">test</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_generator</span><span class="p">(</span><span class="n">test_generator</span><span class="p">,</span> <span class="n">test_sample_counts</span><span class="p">)</span>
     
@@ -13835,7 +13803,7 @@ Found 12500 images belonging to 1 classes.
 <span class="n">X_train</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">X_test</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gap_ResNet50.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;gap_Xception.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;gap_InceptionV3.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;gap_InceptionResNetV2.h5&quot;</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gap_Xception.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;gap_InceptionV3.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;gap_InceptionResNetV2.h5&quot;</span><span class="p">]:</span>
     <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
         <span class="n">X_train</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]))</span>
         <span class="n">X_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]))</span>
@@ -13872,10 +13840,10 @@ Found 12500 images belonging to 1 classes.
 <span class="n">input_tensor</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">input_tensor</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adadelta&#39;</span><span class="p">,</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>     <span class="c1"># sigmoid  adam</span>
               <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span>
               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 </pre></div>
@@ -13884,15 +13852,6 @@ Found 12500 images belonging to 1 classes.
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>整个迁移学习的神经网格结构如下所示。</p>
-<p><img src="source/model.png"></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14274,68 +14233,6 @@ ls: write error
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#32467;&#26524;&#20998;&#26512;">&#32467;&#26524;&#20998;&#26512;<a class="anchor-link" href="#&#32467;&#26524;&#20998;&#26512;">&#182;</a></h2><hr>
-<p>单个ResNet50模型8次迭代训练结果（训练结果见cat_vs_dog_cam.ipynb）：</p>
-<ul>
-<li>训练集loss：0.0356 - acc: 0.9878；验证集val_loss：0.0263 - val_acc: 0.9910。</li>
-</ul>
-<p>使用ResNet50，Xception，InceptionV3，InceptionResNetV2这四个模型进行迁移学习8次迭代训练结果：</p>
-<ul>
-<li>训练集loss：0.0096 - acc: 0.9972； 验证集val_loss：0.0170 - val_acc: 0.9960。</li>
-</ul>
-<p>ResNet50有168层，Xception有126层，InceptionV3有159层，InceptionResNetV2有572层，不同的卷积核有各种各样的的组合，可更好抽取图片中的泛化特征；这样既提高分类的准确率，又降低模型的过拟合风险，一般情况下网络越深，准确率越高。</p>
-<p>ResNet50，Xception，InceptionV3，InceptionResNetV2这四个模型进行组合迁移学习，效果比先单个神经网络模型效果好。这里利用了bagging的思想，通过多个模型处理数据并进行组合，可以有效降低模型的方差，减少过拟合程度，提高分类准确率。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#24635;&#32467;&#24863;&#24819;">&#24635;&#32467;&#24863;&#24819;<a class="anchor-link" href="#&#24635;&#32467;&#24863;&#24819;">&#182;</a></h2><hr>
-<p>本项目使用迁移学习和融合模型完成，站在巨人的肩膀上可以轻松的学习到很优秀的权重参数。这过程中在自己MAC上折腾好几周，但是只能跑一个模型，机器发热严重风扇呼呼的一直转，感觉电脑都要冒烟了，好几次导致电脑自动关机了。然后，跑任务的时候把电脑所有的程序都关掉，跑了足足8多小时，终于能全部跑通。但是，使用多模型融合时就不行了，电脑直接提示内存警告，直接宕机，在网上找了AWS、腾讯的GPU，都不好用，腾讯的还收费那么贵。终于，通过一个同事知道公司内部有免费服务器资源，通过申请公司的GUP服务器才把项目完成。做这个项目，最大的困难就是使用云计算平台去训练，熟练了整个云计算平台的基本使用流程。</p>
-<p>该项目中使用了Xception，InceptionV3 和 ResNet50 ，gap_InceptionResNetV2这四个模型进行了提取特征向量，然后将特征向量直接拼接，忽略了特征之间的位置关系。除了这四个模型，还可以增加更多新的模型，或者使用stacking的方法进行模型融合，进一步降低方差，提高分类的准确率。或者使用更强大的分类器进行训练；这过程中尝试过使用EfficientNets，预训练好的模型EfficientNet提供B0到B5， B5的精确度83.2%，B6,B7还没提供，由于时间关系没继续走这条路。</p>
-<p>最开始做这个项目，先用TensorFlow来实现，发现有很多坑，mac尝试了很多次没能跑起来，所以放弃了。Keras对于初学者还是很友好，使用简单而且稳定，虽然Keras底层实现也是TensorFlow框架，但是Keras对TensorFlow封装的更好，更友好。除非Keras没提供的一些TensorFlow的方法，这时我们可使用TensorFlow底层方法。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21442;&#32771;&#25991;&#29486;">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></h2><hr>
-
-<pre><code>[1] Karen Simonyan and Andrew Zisserman. VERY DEEP CONVOLUTIONAL NETWORKS FOR LARGE- SCALE IMAGE RECOGNITION. At ICLR,2015. 
-[2] [译] Deep Residual Learning for Image Recognition (ResNet)
-[3] 手把手教你如何在Kaggle猫狗大战冲到Top2%：https://yangpeiwen.com/dogs-vs-cats-2
-[4] Keras做图片分类（四）：迁移学习--猫狗大战实战：https://zhuanlan.zhihu.com/p/51889181
-[5] Kaggle猫狗大战准确率Top 2%webapp部署：https://www.jianshu.com/p/1bc2abe88388
-[6] Keras中文文档：https://keras.io/zh/applications
-[7] 毕业设计 Dogs vs Cats For Udacity P7 (异常值检验)：https://zhuanlan.zhihu.com/p/34068451
-[8] 面向小数据集构建图像分类模型：https://keras-cn-docs.readthedocs.io/zh_CN/latest/blog/image_classification_using_very_little_data
-[9] 杨培文 胡博强．深度学习技术图像处理入门. 北京：清华大学出版社，2018（2019.4 重印）.
-[10] [美]Ian GoodFellow [加]Yoshua Bengio [加]Aaron Courvile 著 赵申剑等人译. 深度学习. 北京：人民邮电出版社，2017.8（2017.12 重印）.
-[11] efficientnet: https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
