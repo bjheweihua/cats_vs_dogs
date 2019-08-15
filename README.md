@@ -18,8 +18,12 @@
 代码文件说明：
 
 - detection_remove.ipynb -- 异常图片剔除
-- cat_vs_dog.ipynb --- 融合模型实现（ResNet50, Xception, InceptionV3，InceptionResNetV2 四个模型）
-- cat_vs_dog_cam.ipynb -- iOS实现猫狗识别App（ResNet50单模型）
+- cat_vs_dog.ipynb --- 融合模型实现（Xception, InceptionV3，InceptionResNetV2 三个模型）
+- cat_vs_dog_cam.ipynb -- ResNet50单模型训练及导出mlmodel模型文件
+- resnet50_model_learning.ipynb -- resnet50_model训练
+- cat_vs_dog_proposal.pdf -- 猫狗识别开题报告
+- cat_vs_dog_report.pdf -- 猫狗识别项目报告
+- VisionMLDemo -- iOS实现猫狗识别App
 
 ### 数据来源
 ---
@@ -33,7 +37,7 @@ sample_submission.csv 需要将最终测试集的测试结果写入.csv 文件�
 ---
 
 1. 融合模型实现：
-项目使用ResNet50, Xception, InceptionV3，InceptionResNetV2 四个模型完成。本项目的最低要求是 kaggle Public Leaderboard 前10%。在kaggle上，总共有1314只队伍参加了比赛，所以需要最终的结果排在131位之前，131位的得分是0.06127，所以目标是模型预测结果要小于0.06127。
+项目使用Xception, InceptionV3，InceptionResNetV2 三个模型完成。本项目的最低要求是 kaggle Public Leaderboard 前10%。在kaggle上，总共有1314只队伍参加了比赛，所以需要最终的结果排在131位之前，131位的得分是0.06127，所以目标是模型预测结果要小于0.06127。
 
 2. ResNet50单模型，在iphone手机上运行猫狗识别模型
 
